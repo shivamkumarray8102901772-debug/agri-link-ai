@@ -1,0 +1,62 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agri Link AI Prototype</title>
+<style>
+body{margin:0;background:#eef4ee;font-family:Arial,sans-serif;color:#17351f}.app{max-width:430px;min-height:100vh;margin:auto;background:#f8fbf7}
+header{background:white;padding:20px;border-bottom:1px solid #ddd}.brand{font-size:23px;font-weight:bold}.sub{font-size:12px;color:#68756b}
+main{padding:20px}.screen{display:none}.screen.active{display:block}h1{font-size:25px}.muted{color:#68756b;font-size:13px;line-height:1.5}
+.card,.tile{background:white;border:1px solid #dfe8df;border-radius:15px;padding:16px;margin:12px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tile{margin:0;cursor:pointer;min-height:75px}.tile b{display:block;margin-top:8px;font-size:13px}
+button{width:100%;padding:14px;border:0;border-radius:11px;background:#236b3b;color:white;font-weight:bold;margin-top:10px;cursor:pointer}.secondary{background:#e8f1e9;color:#236b3b}
+.input{padding:12px;background:#f4f8f4;border:1px solid #dbe5dc;border-radius:10px;margin:6px 0 12px}.row{display:flex;justify-content:space-between;gap:10px}.small{font-size:11px;color:#718074}.metric{font-size:20px;font-weight:bold;margin-top:4px}.pill{background:#e6f3e8;color:#236b3b;padding:5px 8px;border-radius:15px;font-size:11px;font-weight:bold}
+.route{border:1px solid #dbe5dc;border-radius:14px;padding:14px;margin:10px 0}.recommended{border:2px solid #236b3b;background:#f1f8f2}.back{background:none;color:#236b3b;padding:0;text-align:left}
+</style></head>
+<body><div class="app">
+<header><div class="brand">🌾 Agri Link AI</div><div class="sub">Smart & Transparent Farm-to-Market Platform</div></header>
+
+<main>
+<section id="s1" class="screen active">
+<center><div style="font-size:55px;margin-top:30px">🌾</div><h1>Welcome to Agri Link AI</h1><p class="muted">Connect farmers, buyers and verified local service partners through intelligent supply-chain decisions.</p></center>
+<div class="card"><b>Choose your role</b><button onclick="go('s2')">👨‍🌾 Farmer</button><button class="secondary" onclick="go('s2')">🛒 Buyer</button><button class="secondary" onclick="go('s2')">🚚 Service Partner</button></div>
+</section>
+
+<section id="s2" class="screen">
+<h1>Farmer Dashboard</h1><p class="muted">Use demand, price and logistics information to make a selling decision.</p>
+<div class="card"><div class="row"><div><span class="small">Current crop</span><div class="metric">Tomato</div></div><span class="pill">500 kg</span></div></div>
+<div class="grid">
+<div class="tile" onclick="go('s3')">🌱<b>Add Produce</b><span class="small">Crop & harvest details</span></div>
+<div class="tile" onclick="go('s3')">📅<b>Sell Before Harvest</b><span class="small">Find upcoming demand</span></div>
+<div class="tile" onclick="go('s4')">🤖<b>Find Buyer</b><span class="small">AI matching</span></div>
+<div class="tile" onclick="go('s4')">📈<b>Price Prediction</b><span class="small">Future estimate</span></div>
+</div><button onclick="go('s3')">Start Smart Selling →</button>
+</section>
+
+<section id="s3" class="screen">
+<button class="back" onclick="go('s2')">← Back</button><h1>Add Produce</h1><p class="muted">Enter expected supply so AI can match it with demand.</p>
+<div class="card">Crop<div class="input">Tomato</div>Quantity<div class="input">500 kg</div>Location<div class="input">Jharkhand</div>Expected Harvest Date<div class="input">15 Oct 2026</div><button onclick="go('s4')">Find Demand with AI →</button></div>
+</section>
+
+<section id="s4" class="screen">
+<button class="back" onclick="go('s3')">← Back</button><h1>AI Matching Results</h1><p class="muted">Demand, price, distance and fulfillment feasibility are compared.</p>
+<div class="card"><div class="row"><b>🌾 Tomato — 500 kg</b><span class="pill">High Demand</span></div><hr>
+<div class="row"><div><span class="small">Best Buyer Match</span><div class="metric">Bulk Buyer A</div></div><div><span class="small">Expected Price</span><div class="metric">₹28/kg</div></div></div><p class="small">📍 42 km • 📦 Buyer demand: 1,200 kg</p></div>
+<div class="card"><b>AI Decision Factors</b><p class="muted">✓ Buyer demand<br>✓ Price opportunity<br>✓ Distance & logistics<br>✓ Available service partner</p></div>
+<button onclick="go('s5')">Compare Supply Routes →</button>
+</section>
+
+<section id="s5" class="screen">
+<button class="back" onclick="go('s4')">← Back</button><h1>Smart Supply Chain Optimizer</h1><p class="muted">AI compares the complete route instead of assuming direct selling is always cheaper.</p>
+<div class="route"><div class="row"><b>Option A — Direct</b><span class="small">Farmer → Buyer</span></div><p class="small">Logistics ₹3,500 • Handling ₹1,000</p><div class="row"><span class="small">Farmer realization</span><b>₹12,500</b></div></div>
+<div class="route recommended"><div class="row"><b>Option B — Service Partner</b><span class="pill">AI Suggested</span></div><p class="small">Logistics ₹2,400 • Service ₹700</p><div class="row"><span class="small">Farmer realization</span><b>₹13,200</b></div><p style="color:#236b3b;font-weight:bold">✓ Better estimated route</p></div>
+<div class="card"><b>Verified Local Service Partner</b><p class="muted">Aggregation • Transportation • Quality Coordination</p></div>
+<button onclick="go('s6')">Confirm Recommended Route →</button>
+</section>
+
+<section id="s6" class="screen">
+<center><div style="font-size:52px;margin-top:15px">✓</div><h1>Order Confirmed</h1><p class="muted">Your farm-to-market transaction is ready.</p></center>
+<div class="card"><div class="row"><span class="small">Buyer</span><b>Bulk Buyer A</b></div><p><span class="small">Crop / Quantity</span><br><b>Tomato / 500 kg</b></p><p><span class="small">Pickup</span><br><b>15 Oct 2026</b></p><p><span class="small">Service Partner</span><br><b>Verified Local Partner</b></p></div>
+<div class="card"><b>Payment Commitment</b><p class="muted">Buyer commitment recorded. Final settlement follows delivery and quality confirmation.</p><span class="pill">Traceable Digital Record</span></div>
+<button onclick="go('s2')">Back to Dashboard</button>
+</section>
+</main></div>
+<script>function go(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');scrollTo(0,0)}</script>
+</body></html>
