@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agri Link AI | Smart Farm-to-Market</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Segoe UI,sans-serif;background:#f5faf6;color:#183027}
+:root{--g:#138a48;--g2:#075d32;--l:#eaf7ee;--o:#f28b27;--b:#2463d8;--line:#d7e5db;--muted:#69766f}
+button,input,select{font:inherit}button{cursor:pointer}.app{display:flex;min-height:100vh}.side{position:fixed;inset:0 auto 0 0;width:235px;background:linear-gradient(#086c39,#123c29);color:white;padding:20px 14px;z-index:5}.logo{display:flex;gap:10px;align-items:center;font-weight:800;font-size:19px;margin-bottom:20px}.logo i{font-style:normal;background:#fff;color:var(--g);padding:10px;border-radius:12px}.role{font-size:11px;color:#bfe5cc}.rolebox{padding:10px;border-radius:10px;background:#ffffff12;margin:6px 0 18px}.nav button{display:block;width:100%;text-align:left;border:0;background:transparent;color:#dff1e5;padding:10px;border-radius:9px;margin:2px 0}.nav button:hover,.nav button.on{background:#ffffff18;color:white}.main{margin-left:235px;padding:22px 28px;width:calc(100% - 235px)}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.top h1{margin:0;font-size:27px}.muted{color:var(--muted)}.pill,.demo,.badge{display:inline-block;border-radius:999px;font-size:11px;font-weight:800;padding:5px 8px}.pill{background:#e4f5e9;color:var(--g2)}.demo{background:#fff1d9;color:#8a5b00}.badge.ok{background:#e5f7eb;color:#11763c}.badge.info{background:#e8f0ff;color:#245ebc}.badge.warn{background:#fff1d8;color:#9b6500}
+.screen{display:none}.screen.on{display:block}.hero{background:linear-gradient(110deg,#08703a,#29a45b);color:#fff;border-radius:18px;padding:22px;display:flex;justify-content:space-between;gap:18px;align-items:center}.hero h2{margin:0 0 6px;font-size:26px}.hero p{margin:0;color:#e5f6eb;line-height:1.45}.hero .score{background:#ffffff18;border-radius:13px;padding:13px 25px;text-align:center;min-width:145px}.grid{display:grid;gap:14px}.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.card{background:white;border:1px solid var(--line);border-radius:15px;padding:17px;box-shadow:0 7px 25px #214a3210}.section{display:flex;justify-content:space-between;align-items:center;margin:19px 0 10px}.section h2{font-size:18px;margin:0}.stat b{font-size:26px}.stat{min-height:105px}.ico{font-size:26px}.feature{min-height:155px}.feature h3{margin:7px 0}.feature p{font-size:13px;line-height:1.4;color:var(--muted)}.btn{border:0;border-radius:9px;padding:10px 13px;font-weight:700}.primary{background:var(--g);color:#fff}.secondary{background:#e9f5ed;color:var(--g2)}.orange{background:var(--o);color:white}.danger{background:#ffeaea;color:#a33}.field label{display:block;font-size:11px;font-weight:700;margin-bottom:5px;color:#526158}.field input,.field select{width:100%;padding:10px;border:1px solid #ccdcd2;border-radius:9px}.form{display:grid;gap:11px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.result{background:#f2faf4;border:1px solid #cfe6d5;border-radius:11px;padding:12px}.profile{display:flex;align-items:center;gap:10px}.avatar{width:42px;height:42px;border-radius:11px;background:#e4f5e9;color:var(--g2);display:grid;place-items:center;font-weight:800}.rating{color:#dc8618;font-weight:800}.list{display:grid}.item{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid var(--line)}.item:last-child{border:0}.route{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.routebox{border:1px solid var(--line);border-radius:12px;padding:14px}.routebox.selected{border:2px solid var(--g);background:#f2fbf4}.price{font-size:21px;font-weight:800}.bar{height:8px;background:#e8eee9;border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:var(--g)}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);font-size:13px}.note{font-size:11px;color:#77837d;margin-top:18px}.modal{display:none;position:fixed;inset:0;background:#102a1f88;z-index:20;align-items:center;justify-content:center;padding:20px}.modal.on{display:flex}.modalbox{background:#fff;border-radius:16px;padding:20px;max-width:560px;width:100%}.toast{display:none;position:fixed;right:20px;bottom:20px;background:#163a2a;color:white;padding:12px 15px;border-radius:10px;z-index:30}.toast.on{display:block}
+.login{min-height:100vh;display:grid;place-items:center;padding:20px;background:#f5faf6}.loginbox{max-width:900px;width:100%;background:#fff;border-radius:22px;overflow:hidden;display:grid;grid-template-columns:1.1fr .9fr;box-shadow:0 20px 60px #173e2918}.loginhero{padding:40px;background:linear-gradient(145deg,#08703a,#29a45b);color:#fff}.loginhero h1{font-size:42px;margin:8px 0}.loginhero p{line-height:1.55}.loginpanel{padding:34px}.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:15px 0}.roles button{padding:14px 5px;border:1px solid var(--line);background:#fff;border-radius:10px}.roles button.sel{border:2px solid var(--g);background:#eef9f1}.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:18px}.steps span{font-size:10px;text-align:center;padding:7px;background:#ffffff1c;border-radius:8px}
+@media(max-width:850px){.side{position:static;width:100%;height:auto}.app{display:block}.main{margin:0;width:100%;padding:15px}.nav{display:grid;grid-template-columns:repeat(3,1fr)}.g2,.g3,.g4,.route,.formgrid{grid-template-columns:1fr}.hero{display:block}.hero .score{margin-top:12px}.loginbox{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div id="login" class="login">
+<div class="loginbox">
+<div class="loginhero">
+<div style="font-size:45px">🌾</div><h1>Agri Link AI</h1>
+<p><b>Smart & Transparent Farm-to-Market Platform</b></p>
+<p>Demand-first agriculture with AI-assisted matching, future price and demand insights, smart logistics, transparent pricing and trusted digital service partners.</p>
+<div class="steps"><span>Demand</span><span>Match</span><span>Optimize</span><span>Deliver</span><span>Track</span></div>
+</div>
+<div class="loginpanel">
+<h2>Choose your role</h2><p class="muted">Interactive prototype demo</p>
+<div class="roles">
+<button class="sel" onclick="role(this,'Farmer')">👨‍🌾<br><b>Farmer</b></button>
+<button onclick="role(this,'Buyer')">🏪<br><b>Buyer</b></button>
+<button onclick="role(this,'Service Partner')">🚚<br><b>Service Partner</b></button>
+</div>
+<div class="form">
+<div class="field"><label>Name</label><input id="name" value="Demo User"></div>
+<div class="field"><label>Location</label><input id="loc" value="Jharkhand"></div>
+<button class="btn primary" onclick="enter()">Enter Agri Link AI →</button>
+</div>
+<p class="note"><span class="demo">DEMO</span> Prices, demand, AI outputs, ratings and locations are sample/simulated data for presentation.</p>
+</div></div></div>
+
+<div id="app" class="app" style="display:none">
+<aside class="side">
+<div class="logo"><i>🌾</i><span>Agri Link AI<br><small style="color:#bce3ca">Farm-to-Market</small></span></div>
+<div class="role">LOGGED IN AS</div><div class="rolebox"><b id="sname">Demo User</b><br><small id="srole">Farmer</small></div>
+<div class="nav">
+<button class="on" onclick="go('dash',this)">⌂ Dashboard</button>
+<button onclick="go('market',this)">🛒 Marketplace</button>
+<button onclick="go('ai',this)">✦ AI Decision Engine</button>
+<button onclick="go('harvest',this)">🌱 Sell Before Harvest</button>
+<button onclick="go('logistics',this)">🚚 Smart Logistics</button>
+<button onclick="go('trust',this)">★ Trust & Ratings</button>
+<button onclick="go('centres',this)">📍 Collection Centres</button>
+<button onclick="go('trace',this)">▣ Traceability</button>
+<button onclick="go('orders',this)">✓ Orders & Payments</button>
+<button onclick="go('markettools',this)">📈 Market Tools</button>
+</div>
+<p style="font-size:11px;color:#d5eee0;margin-top:20px">We don't remove people. We remove unnecessary cost, duplication and opacity.</p>
+</aside>
+
+<main class="main">
+<div class="top"><div><h1 id="title">Dashboard</h1><p id="sub" class="muted">Your farm-to-market control centre</p></div><span class="pill">● Prototype Demo</span></div>
+
+<section id="dash" class="screen on">
+<div class="hero"><div><h2>Good evening, <span id="hname">Demo User</span> 👋</h2><p>Find buyers, compare routes and make transparent selling decisions.</p></div><div class="score">Trust Score<br><b style="font-size:28px">92/100</b><br>⭐ 4.8/5</div></div>
+<div class="grid g4" style="margin-top:14px">
+<div class="card stat"><span class="muted">Upcoming Demand</span><br><b class="green">2.4 T</b><br><small>↑ High demand</small></div>
+<div class="card stat"><span class="muted">Potential Buyers</span><br><b>18</b><br><small>8 nearby</small></div>
+<div class="card stat"><span class="muted">Active Orders</span><br><b>3</b><br><small>2 in transit</small></div>
+<div class="card stat"><span class="muted">Net Realization</span><br><b>₹13.2k</b><br><small>Route estimate</small></div>
+</div>
+<div class="section"><h2>Core Features</h2><span class="demo">SAMPLE DATA</span></div>
+<div class="grid g3">
+<div class="card feature"><div class="ico">🎯</div><h3>Small Farmer–Bulk Buyer Matching</h3><p>Aggregate small farmers and connect them with suitable bulk buyers.</p><button class="btn secondary" onclick="go('market')">Find buyers →</button></div>
+<div class="card feature"><div class="ico">🔮</div><h3>Future Price Prediction</h3><p>View simulated future price trends for better selling decisions.</p><button class="btn secondary" onclick="go('ai')">View prediction →</button></div>
+<div class="card feature"><div class="ico">📊</div><h3>AI Demand Forecasting</h3><p>Predict upcoming demand and plan selling before harvest.</p><button class="btn secondary" onclick="go('ai')">View demand →</button></div>
+<div class="card feature"><div class="ico">🚚</div><h3>Smart Logistics</h3><p>Compare direct, partner and hybrid routes using total costs.</p><button class="btn secondary" onclick="go('logistics')">Optimize →</button></div>
+<div class="card feature"><div class="ico">📍</div><h3>Local Collection Centre Support</h3><p>Bring digital marketplace support closer to farmers.</p><button class="btn secondary" onclick="go('centres')">Find centre →</button></div>
+<div class="card feature"><div class="ico">★</div><h3>Trust Score & Ratings</h3><p>Rate reliability using transactions, payments, service quality and feedback.</p><button class="btn secondary" onclick="go('trust')">Check trust →</button></div>
+<div class="card feature"><div class="ico">📈</div><h3>Market Rates & Digital Trading</h3><p>View mandi rates, auctions, bidding and online trade information.</p><button class="btn secondary" onclick="go('markettools')">Open market tools →</button></div>
+<div class="card feature"><div class="ico">🧾</div><h3>Digital Bookkeeping</h3><p>Track orders, expenses, trade bills and payment records digitally.</p><button class="btn secondary" onclick="go('markettools')">View tools →</button></div>
+<div class="card feature"><div class="ico">🏦</div><h3>Finance & Credit Support</h3><p>Show eligible finance or trade-credit options through verified partners.</p><button class="btn secondary" onclick="go('markettools')">Explore →</button></div>
+</div>
+<div class="section"><h2>Transparent Pricing</h2></div>
+<div class="card grid g4"><div><small class="muted">Buyer Price</small><br><b>₹28/kg</b></div><div><small class="muted">Transport</small><br><b>−₹2.40/kg</b></div><div><small class="muted">Service Charge</small><br><b>−₹0.70/kg</b></div><div><small class="muted">Farmer Net</small><br><b class="green">₹24.90/kg</b></div></div>
+</section>
+
+<section id="market" class="screen">
+<div class="hero"><div><h2>🛒 Marketplace</h2><p>Demand-first matching and small-farmer aggregation.</p></div><div class="score">Bulk Matching<br><b>1.5 T</b><br>High demand</div></div>
+<div class="grid g2" style="margin-top:14px"><div class="card"><h3>Add Produce</h3><div class="form">
+<div class="formgrid"><div class="field"><label>Crop</label><select id="crop"><option>Tomato</option><option>Potato</option><option>Wheat</option><option>Onion</option></select></div><div class="field"><label>Quantity</label><input id="qty" value="500 kg"></div></div>
+<div class="formgrid"><div class="field"><label>Location</label><input value="Jharkhand"></div><div class="field"><label>Harvest Date</label><input type="date" value="2026-10-15"></div></div>
+<button class="btn primary" onclick="match()">AI Find Buyers</button></div></div>
+<div class="card"><h3>🎯 AI Match Result</h3><div id="matchout" class="result"><div class="profile"><div class="avatar">BA</div><div><b>Bulk Buyer A</b><br><span class="rating">★ 4.8</span> · Trust 94/100</div><b style="margin-left:auto">₹28/kg</b></div><p class="muted small">42 km · High demand · 3 farmers can aggregate supply.</p></div></div></div>
+<div class="section"><h2>Demand Board</h2></div>
+<div class="card"><table><tr><th>Buyer</th><th>Crop</th><th>Demand</th><th>Price</th><th>Trust</th><th></th></tr>
+<tr><td>Bulk Buyer A</td><td>Tomato</td><td>1.5 T</td><td>₹28/kg</td><td>94/100</td><td><button class="btn secondary" onclick="order('Bulk Buyer A')">Match</button></td></tr>
+<tr><td>Retail Network B</td><td>Potato</td><td>800 kg</td><td>₹24/kg</td><td>91/100</td><td><button class="btn secondary" onclick="order('Retail Network B')">Match</button></td></tr>
+<tr><td>Food Processor C</td><td>Onion</td><td>2.0 T</td><td>₹31/kg</td><td>89/100</td><td><button class="btn secondary" onclick="order('Food Processor C')">Match</button></td></tr></table></div>
+</section>
+
+<section id="ai" class="screen">
+<div class="hero"><div><h2>✦ AI Decision Engine</h2><p>Future price, demand forecast and route decision support.</p></div><div class="score">AI Assisted<br><small>Demo model</small></div></div>
+<div class="grid g2" style="margin-top:14px">
+<div class="card"><h3>🔮 Future Price Prediction</h3><p class="muted small">Simulated trend for presentation.</p><div class="grid g3"><div><small>Today</small><h3>₹26/kg</h3></div><div><small>+3 Days</small><h3>₹27.5/kg</h3></div><div><small>+7 Days</small><h3 class="green">₹29/kg</h3></div></div><div class="bar"><i style="width:78%"></i></div><p><span class="badge info">DEMO</span> Upward trend signal</p></div>
+<div class="card"><h3>📊 AI Demand Forecast</h3><div class="list"><div class="item">🍅 Tomato <b>2.4 T <span class="badge ok">HIGH</span></b></div><div class="item">🥔 Potato <b>1.8 T <span class="badge ok">HIGH</span></b></div><div class="item">🧅 Onion <b>1.1 T <span class="badge warn">MEDIUM</span></b></div></div></div>
+</div>
+<div class="section"><h2>AI Recommendation</h2></div><div class="card result"><b>Compare the supply-chain route before confirming.</b><p class="muted">The platform does not assume direct selling is always cheaper. It compares direct, service-partner and hybrid routes using estimated total costs and net realization.</p><button class="btn primary" onclick="go('logistics')">Compare Routes →</button></div>
+</section>
+
+<section id="harvest" class="screen">
+<div class="hero"><div><h2>🌱 Sell Before You Harvest</h2><p>Crop + expected quantity + harvest date + location → upcoming demand → demand-backed selling plan.</p></div><div class="score">Demand → Supply<br><small>Before harvest</small></div></div>
+<div class="card" style="margin-top:14px"><div class="formgrid"><div class="field"><label>Crop</label><select><option>Tomato</option><option>Potato</option><option>Onion</option></select></div><div class="field"><label>Expected Quantity</label><input value="1200 kg"></div><div class="field"><label>Harvest Date</label><input type="date" value="2026-10-15"></div><div class="field"><label>Location</label><input value="Jharkhand"></div></div><button class="btn primary" style="margin-top:12px" onclick="document.getElementById('deal').style.display='block';toast('Harvest deal generated')">Generate Harvest Deal</button></div>
+<div id="deal" class="card result" style="display:none;margin-top:14px"><h3>Harvest Deal Ready</h3><div class="grid g3"><div><small>Buyer</small><br><b>Bulk Buyer A</b><br>Trust 94/100</div><div><small>Demand</small><br><b>1.5 T</b><br>High demand</div><div><small>Payment</small><br><b class="green">Commitment Ready</b></div></div><hr style="border:0;border-top:1px solid var(--line);margin:14px 0"><p class="muted">Nearby farmers can be aggregated into one pickup route after the demand is confirmed.</p><button class="btn orange" onclick="toast('Demand-backed plan saved')">Create Plan</button></div>
+</section>
+
+<section id="logistics" class="screen">
+<div class="hero"><div><h2>🚚 Smart Supply-Chain Optimizer</h2><p>Direct vs service partner vs hybrid — compare total cost and farmer net realization.</p></div><div class="score">AI Suggested<br><b>Partner Route</b></div></div>
+<div class="card" style="margin-top:14px"><div class="route">
+<div class="routebox"><span class="badge info">DIRECT</span><h3>Farmer → Buyer</h3><div class="price">₹12,500</div><small>Net realization (sample)</small><hr>Logistics ₹3,500<br>Handling ₹1,000</div>
+<div class="routebox selected"><span class="badge ok">AI SUGGESTED</span><h3>Farmer → Partner → Buyer</h3><div class="price green">₹13,200</div><small>Net realization (sample)</small><hr>Logistics ₹2,400<br>Service ₹700</div>
+<div class="routebox"><span class="badge warn">HYBRID</span><h3>Farmer → Centre → Buyer</h3><div class="price">₹12,950</div><small>Net realization (sample)</small><hr>Transport ₹2,700<br>Centre ₹850</div>
+</div><div class="result" style="margin-top:12px"><b>Why?</b> In this sample, the service partner reduces estimated logistics burden through aggregation and local transport. The platform chooses based on calculated economics, not on removing people.</div></div>
+<div class="section"><h2>Verified Digital Service Partners</h2></div><div class="grid g3">
+<div class="card"><div class="profile"><div class="avatar">RK</div><div><b>Ranchi Agro Logistics</b><br><span class="rating">★4.7</span> · Trust 91</div></div><p class="muted small">Aggregation · Transport · Pickup</p><button class="btn secondary" onclick="toast('Partner selected')">Select</button></div>
+<div class="card"><div class="profile"><div class="avatar">JS</div><div><b>Jharkhand Collection Network</b><br><span class="rating">★4.6</span> · Trust 88</div></div><p class="muted small">Storage · Quality · Pickup</p><button class="btn secondary" onclick="toast('Partner selected')">Select</button></div>
+<div class="card"><div class="profile"><div class="avatar">AP</div><div><b>Agri Pickup Partner</b><br><span class="rating">★4.8</span> · Trust 94</div></div><p class="muted small">Transport · Buyer coordination</p><button class="btn secondary" onclick="toast('Partner selected')">Select</button></div>
+</div>
+</section>
+
+<section id="trust" class="screen">
+<div class="hero"><div><h2>★ Trust Score & Ratings</h2><p>Rates farmers, buyers and partners based on transaction history, payment behaviour, service quality and ratings.</p></div><div class="score"><b style="font-size:28px">92/100</b><br>⭐4.8/5</div></div>
+<div class="grid g3" style="margin-top:14px">
+<div class="card"><h3>👨‍🌾 Farmer</h3><b style="font-size:27px;color:var(--g)">92/100</b><p class="rating">★4.8/5</p><p class="muted small">118 successful transactions</p><div class="bar"><i style="width:92%"></i></div></div>
+<div class="card"><h3>🏪 Buyer</h3><b style="font-size:27px;color:var(--g)">94/100</b><p class="rating">★4.8/5</p><p class="muted small">95 successful transactions</p><div class="bar"><i style="width:94%"></i></div></div>
+<div class="card"><h3>🚚 Service Partner</h3><b style="font-size:27px;color:var(--g)">91/100</b><p class="rating">★4.7/5</p><p class="muted small">80 successful pickups</p><div class="bar"><i style="width:91%"></i></div></div>
+</div>
+<div class="section"><h2>Score factors</h2></div><div class="card grid g4"><div><b>Successful Transactions</b><p class="muted small">Completed orders</p></div><div><b>Payment Record</b><p class="muted small">On-time behaviour</p></div><div><b>Service Quality</b><p class="muted small">Delivery/quality consistency</p></div><div><b>User Ratings</b><p class="muted small">Verified feedback</p></div></div>
+</section>
+
+<section id="centres" class="screen">
+<div class="hero"><div><h2>📍 Local Collection Centre Support</h2><p>Local centres bridge the digital gap and help with registration, crop details, buyer information, aggregation and pickup coordination.</p></div><div class="score">Offline → Online<br><small>Farmer support</small></div></div>
+<div class="grid g2" style="margin-top:14px"><div class="card"><h3>Nearby Centres</h3><div class="list"><div class="item"><span><b>Ranchi Collection Centre</b><br><small>Registration · Aggregation · Pickup</small></span><span class="badge ok">Open</span></div><div class="item"><span><b>Khunti Farmer Support Centre</b><br><small>Digital help · Quality</small></span><span class="badge ok">Open</span></div><div class="item"><span><b>Gumla Agro Centre</b><br><small>Storage · Transport</small></span><span class="badge warn">Busy</span></div></div></div>
+<div class="card"><h3>Centre Workflow</h3><div class="steps" style="color:#214"><span>Register</span><span>Add Crop</span><span>Aggregate</span><span>Pickup</span><span>Deliver</span></div><p class="muted small">The centre acts as a physical + digital bridge for farmers who need local assistance.</p><button class="btn primary" onclick="toast('Centre support request created')">Request Support</button></div></div>
+</section>
+
+
+<section id="markettools" class="screen">
+<div class="hero"><div><h2>📈 Market Tools & Agri Services</h2><p>Common digital-agriculture capabilities found across established platforms, combined with Agri Link AI.</p></div><div class="score">Market Data<br><small>Demo modules</small></div></div>
+
+<div class="section"><h2>Trading & Price Discovery</h2><span class="demo">FEATURE PARITY DEMO</span></div>
+<div class="grid g3">
+<div class="card feature"><div class="ico">🏷️</div><h3>Mandi Market Rates</h3><p>View daily/sample mandi prices and compare market opportunities before selling.</p><button class="btn secondary" onclick="toast('Market rates refreshed')">Refresh Rates</button></div>
+<div class="card feature"><div class="ico">🔨</div><h3>e-Auction & Bidding</h3><p>Buyers can place bids and sellers can compare transparent offers for a commodity.</p><button class="btn secondary" onclick="auction()">Open Auction</button></div>
+<div class="card feature"><div class="ico">🤝</div><h3>Negotiation & Custom Trade Terms</h3><p>Buyer and seller can negotiate price, quantity, quality and delivery terms digitally.</p><button class="btn secondary" onclick="toast('Negotiation room opened')">Negotiate</button></div>
+</div>
+
+<div class="section"><h2>Quality, Storage & Supply Chain</h2></div>
+<div class="grid g3">
+<div class="card feature"><div class="ico">🧪</div><h3>Quality Testing / Assaying</h3><p>Record quality grades and test results so buyers can make informed bids.</p><button class="btn secondary" onclick="go('trace')">View Quality</button></div>
+<div class="card feature"><div class="ico">🏬</div><h3>Warehousing Support</h3><p>Show available storage support when produce is not ready for immediate sale.</p><button class="btn secondary" onclick="toast('Warehouse availability checked')">Find Storage</button></div>
+<div class="card feature"><div class="ico">📦</div><h3>Stock & Goods Tracking</h3><p>Track stock, pickup, delivery and settlement status through one digital record.</p><button class="btn secondary" onclick="go('orders')">Track Goods</button></div>
+</div>
+
+<div class="section"><h2>Digital Trade & Finance</h2></div>
+<div class="grid g3">
+<div class="card feature"><div class="ico">🧾</div><h3>e-Bijak / Digital Bookkeeping</h3><p>Maintain digital trade bills, orders, expenses and payment records.</p><button class="btn secondary" onclick="bookkeeping()">Open Ledger</button></div>
+<div class="card feature"><div class="ico">💳</div><h3>Secure Digital Payments</h3><p>Support digital settlement records and payment confirmation through the platform.</p><button class="btn secondary" onclick="go('orders')">View Settlement</button></div>
+<div class="card feature"><div class="ico">🏦</div><h3>Trade Credit / Finance</h3><p>Display eligible credit or finance options through approved financial partners.</p><button class="btn secondary" onclick="finance()">Check Eligibility</button></div>
+</div>
+
+<div class="section"><h2>Farm Intelligence & Market Reach</h2></div>
+<div class="grid g3">
+<div class="card feature"><div class="ico">🛰️</div><h3>Crop Monitoring & Farm Intelligence</h3><p>Use farm and crop information for monitoring, yield planning and decision support.</p><button class="btn secondary" onclick="toast('Farm intelligence demo opened')">View Insights</button></div>
+<div class="card feature"><div class="ico">🌱</div><h3>Crop Advisory</h3><p>Provide digital guidance and alerts to support better farm decisions.</p><button class="btn secondary" onclick="toast('Advisory demo opened')">View Advisory</button></div>
+<div class="card feature"><div class="ico">🌍</div><h3>Wider / Global Buyer Access</h3><p>Connect verified suppliers with wider buyer networks where applicable.</p><button class="btn secondary" onclick="toast('Wider buyer network opened')">Explore Buyers</button></div>
+</div>
+
+<div class="section"><h2>e-Mandi / APMC-Style Market Connectivity</h2></div>
+<div class="card">
+<div class="grid g4">
+<div><b>Lot Registration</b><p class="muted small">Register commodity lots digitally.</p></div>
+<div><b>Transparent Auction</b><p class="muted small">Compare bids and price discovery.</p></div>
+<div><b>Quality Assaying</b><p class="muted small">Link quality information to the lot.</p></div>
+<div><b>Online Payment</b><p class="muted small">Record digital settlement.</p></div>
+</div>
+<p class="note">Agri Link AI uses these established marketplace capabilities as supporting modules; its proposed differentiators remain demand-first aggregation, supply-chain cost comparison, AI route selection, sell-before-harvest and digital service-partner integration.</p>
+</div>
+</section>
+
+<section id="trace" class="screen">
+<div class="hero"><div><h2>▣ Traceability & Quality</h2><p>Digital transaction records, QR-style traceability and quality-based pricing.</p></div><div class="score">QR / Barcode<br><small>Trace record</small></div></div>
+<div class="grid g2" style="margin-top:14px"><div class="card"><h3>Produce Trace Record</h3><div class="result"><b>Batch:</b> AL-2026-TOM-001<br><b>Crop:</b> Tomato<br><b>Quantity:</b> 500 kg<br><b>Origin:</b> Jharkhand<br><b>Quality:</b> Grade A <span class="badge ok">Verified</span><br><b>Pickup:</b> Collection Centre<br><b>Status:</b> In transit</div><button class="btn primary" style="margin-top:12px" onclick="qr()">Show QR Record</button></div>
+<div class="card"><h3>Quality-Based Pricing</h3><div class="list"><div class="item">Grade A <b>₹28/kg</b></div><div class="item">Grade B <b>₹25/kg</b></div><div class="item">Grade C <b>₹22/kg</b></div></div><p class="muted small">Sample pricing linked to verified quality information.</p></div></div>
+</section>
+
+<section id="orders" class="screen">
+<div class="hero"><div><h2>✓ Orders & Digital Payments</h2><p>Order confirmation, payment commitment, transaction records and transparent settlement.</p></div><div class="score">🔐 Secure<br><small>Demo flow</small></div></div>
+<div class="card" style="margin-top:14px"><h3>Active Order — AL-1042</h3><div class="steps" style="color:#214"><span>✓ Order</span><span>✓ Quality</span><span>✓ Pickup</span><span>Delivery</span><span>Settlement</span></div><div class="grid g4" style="margin-top:16px"><div><small>Buyer</small><br><b>Bulk Buyer A</b></div><div><small>Produce</small><br><b>Tomato · 500 kg</b></div><div><small>Payment</small><br><b class="green">Commitment recorded</b></div><div><small>Route</small><br><b>Service Partner</b></div></div><div class="section"><h2>Transparent Price Breakup</h2></div><table><tr><td>Buyer Price</td><td>₹14,000</td></tr><tr><td>Transport Cost</td><td>−₹1,200</td></tr><tr><td>Service Partner Charge</td><td>−₹350</td></tr><tr><td><b>Estimated Farmer Net Realization</b></td><td><b class="green">₹12,450</b></td></tr></table><p class="muted small">No hidden charges. Figures are sample prototype values.</p><button class="btn primary" onclick="toast('Digital transaction record saved')">Save Transaction Record</button></div>
+</section>
+
+<p class="note"><span class="demo">PROTOTYPE</span> This is a presentation prototype. AI outputs, prices, demand, trust scores and locations are simulated/sample data, not live market quotes.</p>
+</main></div>
+
+<div id="modal" class="modal" onclick="if(event.target===this)this.classList.remove('on')"><div class="modalbox"><div style="display:flex;justify-content:space-between"><h2>QR Traceability Record</h2><button class="btn danger" onclick="document.getElementById('modal').classList.remove('on')">Close</button></div><div class="result"><b>Batch:</b> AL-2026-TOM-001<br><b>Status:</b> Verified demo trace record<br><br><span class="demo">QR SCAN SIMULATION</span></div></div></div>
+<div id="toast" class="toast"></div>
+
+<script>
+let currentRole='Farmer';
+const info={dash:['Dashboard','Your farm-to-market control centre'],market:['Marketplace','Match supply with demand and aggregate small farmers'],ai:['AI Decision Engine','Price, demand and route decision support'],harvest:['Sell Before Harvest','Demand-backed selling before harvest'],logistics:['Smart Logistics','Compare direct, partner and hybrid supply-chain routes'],trust:['Trust & Ratings','Transparent reputation for farmers, buyers and service partners'],centres:['Local Collection Centres','Offline-to-online support for farmers'],trace:['Traceability & Quality','Quality, QR trace records and transparent product history'],orders:['Orders & Payments','Digital transactions and transparent settlement'],markettools:['Market Tools','Rates, auctions, quality, bookkeeping, finance and advisory']};
+function role(el,r){document.querySelectorAll('.roles button').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');currentRole=r}
+function enter(){let n=document.getElementById('name').value||'Demo User';document.getElementById('login').style.display='none';document.getElementById('app').style.display='flex';document.getElementById('sname').textContent=n;document.getElementById('hname').textContent=n;document.getElementById('srole').textContent=currentRole;toast('Welcome to Agri Link AI')}
+function go(id,btn){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('on'));document.getElementById(id).classList.add('on');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('on'));if(btn)btn.classList.add('on');document.getElementById('title').textContent=info[id][0];document.getElementById('sub').textContent=info[id][1];scrollTo(0,0)}
+function toast(m){let x=document.getElementById('toast');x.textContent=m;x.classList.add('on');setTimeout(()=>x.classList.remove('on'),2300)}
+function match(){let c=document.getElementById('crop').value,q=document.getElementById('qty').value;document.getElementById('matchout').innerHTML='<div class="profile"><div class="avatar">BA</div><div><b>Bulk Buyer A</b><br><span class="rating">★4.8</span> · Trust 94/100</div><b style="margin-left:auto">₹28/kg</b></div><p class="muted small">'+c+' · '+q+' · 42 km · High demand</p><div class="result"><b>Aggregation opportunity:</b> nearby farmers can jointly fulfil a larger buyer requirement.</div>';toast('AI matching completed')}
+function order(b){toast('Order with '+b+' added');go('orders')}
+function auction(){toast('Sample auction: highest verified bid ₹28/kg')}
+function bookkeeping(){toast('Digital ledger opened')}
+function finance(){toast('Demo eligibility check completed')}
+function qr(){document.getElementById('modal').classList.add('on')}
+</script>
+</body>
+</html>
